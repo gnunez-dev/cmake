@@ -26,10 +26,16 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(LIBRARY_NAME Library)
 set(EXECUTABLE_NAME Executable)
 
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
+include(AddGitSubmodule)
+
+add_git_submodule(external/json)
+
 #option(COMPILE_EXECUTABLE "Whether to compile the executable" OFF)
 
 #to add other CMakeList files
 add_subdirectory(configured)
+add_subdirectory(external)
 add_subdirectory(src) #this is first because it has the library
 add_subdirectory(app)
 #if(COMPILE_EXECUTABLE)
