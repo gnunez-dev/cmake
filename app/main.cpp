@@ -14,7 +14,5 @@ int main(){
               << NLOHMANN_JSON_VERSION_MAJOR << "."
               << NLOHMANN_JSON_VERSION_MINOR << "."
               << NLOHMANN_JSON_VERSION_PATCH << "." << std::endl;
-
-
     return 0;
 }

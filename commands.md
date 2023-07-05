@@ -8,4 +8,6 @@
 
 
 ### Git
-git submodule add https://github.com/nlohmann/json external/json
+- git submodule add https://github.com/nlohmann/json external/json
+- git clone --recursive https://...
+- 
