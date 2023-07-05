@@ -1,3 +1,13 @@
+set(LIBRARY_SOURCES
+    "my_lib.cpp")
+set(LIBRARY_HEADERS
+    "my_lib.h")
+
 #added a library, name of the library - type - file
-add_library(${LIBRARY_NAME} STATIC my_lib.cpp)
-target_include_directories(${LIBRARY_NAME} PUBLIC "./")
+add_library(${LIBRARY_NAME} STATIC
+    ${LIBRARY_SOURCES}
+    ${LIBRARY_HEADERS})
+
+target_include_directories(${LIBRARY_NAME} PUBLIC
+    "./"
+    "${CMAKE_BINARY_DIR}/configured_files/include")

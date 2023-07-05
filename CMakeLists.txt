@@ -15,10 +15,25 @@ project(
     VERSION 1.0.0
     LANGUAGES C CXX) #CXX is equal to C++
 
+#Variables
+
+#Default variables
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 #Creating a variable. Name - Value
 set(LIBRARY_NAME Library)
 set(EXECUTABLE_NAME Executable)
 
+#option(COMPILE_EXECUTABLE "Whether to compile the executable" OFF)
+
 #to add other CMakeList files
+add_subdirectory(configured)
 add_subdirectory(src) #this is first because it has the library
 add_subdirectory(app)
+#if(COMPILE_EXECUTABLE)
+#    add_subdirectory(app)
+#else()
+#    message("Without executable compiling")
+#endif()
