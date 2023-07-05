@@ -15,6 +15,10 @@ project(
     VERSION 1.0.0
     LANGUAGES C CXX) #CXX is equal to C++
 
+#Creating a variable. Name - Value
+set(LIBRARY_NAME Library)
+set(EXECUTABLE_NAME Executable)
+
 #to add other CMakeList files
 add_subdirectory(src) #this is first because it has the library
 add_subdirectory(app)
