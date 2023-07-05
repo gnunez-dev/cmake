@@ -15,11 +15,6 @@ project(
     VERSION 1.0.0
     LANGUAGES C CXX) #CXX is equal to C++
 
-#added a library, name of the library - type - file
-add_library(Library STATIC src/my_lib.cpp)
-
-#creating a executable, name of the out file - path to the source file
-add_executable(Executable src/main.cpp)
-
-#linking the library with the main file, name of the out file (executable.exe) - type - name of the library
-target_link_libraries(Executable PUBLIC Library)
+#to add other CMakeList files
+add_subdirectory(src) #this is first because it has the library
+add_subdirectory(app)
