@@ -22,6 +22,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+option(ENABLE_TESTING "Enable a Unit Testing Build" ON)
+
 #Creating a variable. Name - Value
 set(LIBRARY_NAME Library)
 set(EXECUTABLE_NAME Executable)
@@ -80,6 +82,7 @@ add_subdirectory(configured)
 add_subdirectory(external)
 add_subdirectory(src) #this is first because it has the library
 add_subdirectory(app)
+add_subdirectory(tests)
 #if(COMPILE_EXECUTABLE)
 #    add_subdirectory(app)
 #else()

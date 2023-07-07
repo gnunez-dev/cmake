@@ -14,3 +14,7 @@ void printHello(){
               << NLOHMANN_JSON_VERSION_MINOR << "."
               << NLOHMANN_JSON_VERSION_PATCH << "." << std::endl;
 }
+
+std::uint32_t factorial( std::uint32_t num) {
+    return num <= 1 ? 1 : factorial(num - 1) * num;
+}
