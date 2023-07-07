@@ -29,6 +29,7 @@ set(EXECUTABLE_NAME Executable)
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
 include(AddGitSubmodule) #can be used when the repo doesn't have CMakeLists file
 include(FetchContent)
+include(Docs)
 
 #To use FetchContent_Declare, the repo has to have a CMakeLists
 #this clone of the repo
