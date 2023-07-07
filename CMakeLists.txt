@@ -27,16 +27,18 @@ set(LIBRARY_NAME Library)
 set(EXECUTABLE_NAME Executable)
 
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
-include(AddGitSubmodule)
+include(AddGitSubmodule) #can be used when the repo doesn't have CMakeLists file
 include(FetchContent)
 
-FetchContent_Declare(
-    nlohmann_json
-    GIT_REPOSITORY https://github.com/nlohmann/json
-    GIT_TAG v3.11.2
-    GIT_SHALLOW TRUE
+#To use FetchContent_Declare, the repo has to have a CMakeLists
+#this clone of the repo
+FetchContent_Declare( #Repo in GitHub
+    nlohmann_json #name of the project - CMakeLists.txt
+    GIT_REPOSITORY https://github.com/nlohmann/json #link of repo
+    GIT_TAG v3.11.2 #version
+    GIT_SHALLOW TRUE #true -> It means that only a limited depth of Git history is fetched
 )
-FetchContent_MakeAvailable(nlohmann_json)
+FetchContent_MakeAvailable(nlohmann_json) #this made the library available in the project
 
 FetchContent_Declare(
     fmt
@@ -52,15 +54,23 @@ FetchContent_Declare(
     GIT_TAG v1.11.0
     GIT_SHALLOW TRUE
 )
-#FetchContent_MakeAvailable(spdlog)
+FetchContent_MakeAvailable(spdlog)
 
 FetchContent_Declare(
     cxxopts
     GIT_REPOSITORY https://github.com/jarro2783/cxxopts
-    GIT_TAG v1.11.0
+    GIT_TAG v3.0.0
     GIT_SHALLOW TRUE
 )
-#FetchContent_MakeAvailable(cxxopts)
+FetchContent_MakeAvailable(cxxopts)
+
+FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2
+    GIT_TAG v2.13.9
+    GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(Catch2)
 
 #option(COMPILE_EXECUTABLE "Whether to compile the executable" OFF)
 
