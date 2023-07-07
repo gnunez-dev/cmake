@@ -2,6 +2,10 @@
 #include <nlohmann/json.hpp>
 #include "my_lib.h"
 
+/**
+ * @brief Prints out hello world and testing JSON library.
+ *
+ */
 void printHello(){
     std::cout << "Hello World\n";
 
