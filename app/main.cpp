@@ -9,7 +9,6 @@
 #include "config.hpp"
 
 int main(){
-
     std::cout << project_name << std::endl;
     std::cout << project_VERSION << std::endl << std::endl;
     printHello();

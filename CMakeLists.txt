@@ -24,6 +24,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(ENABLE_TESTING "Enable a Unit Testing Build" ON)
 
+option(ENABLE_WARNINGS "Enable warnings" ON)
+option(ENABLE_WARNINGS_AS_ERRORS "Enable warnings as errors" ON)
+
 #Creating a variable. Name - Value
 set(LIBRARY_NAME Library)
 set(EXECUTABLE_NAME Executable)
@@ -32,6 +35,10 @@ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
 include(AddGitSubmodule) #can be used when the repo doesn't have CMakeLists file
 include(FetchContent)
 include(Docs)
+
+if(ENABLE_WARNINGS)
+    include(Warnings)
+endif()
 
 #To use FetchContent_Declare, the repo has to have a CMakeLists
 #this clone of the repo
