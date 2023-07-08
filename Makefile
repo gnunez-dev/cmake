@@ -18,5 +18,9 @@ conan_r:
 	mkdir build
 	cd build && conan install .. -s build_type=Release --output-folder=. --build missing -s compiler.cppstd=17
 
-build_command:
+build__default:
+	cd build && cmake .. && cmake --build .
+
+
+build__with_build_type:
 	cd build && cmake .. -DCMAKE_BUILD_TYPE=Debug && cmake --build .
