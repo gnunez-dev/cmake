@@ -30,6 +30,8 @@ option(ENABLE_WARNINGS_AS_ERRORS "Enable warnings as errors" OFF)
 option(ENABLE_SANITIZER_ADDRESS "Enable sanitizer" ON)
 option(ENABLE_SANITIZER_UNDEFINED "Enable undefined sanitizer" ON)
 
+option(ENABLE_LTO "Enable LTO" ON)
+
 #Creating a variable. Name - Value
 set(LIBRARY_NAME Library)
 set(EXECUTABLE_NAME Executable)
@@ -46,6 +48,10 @@ endif()
 if(ENABLE_SANITIZER_ADDRESS OR ENABLE_SANITIZER_UNDEFINED)
     include(Sanitizers)
     add_sanitizer_flags()
+endif()
+
+if(ENABLE_LTO)
+    include(LTO)
 endif()
 
 #To use FetchContent_Declare, the repo has to have a CMakeLists
