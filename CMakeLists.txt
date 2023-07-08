@@ -25,7 +25,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 option(ENABLE_TESTING "Enable a Unit Testing Build" ON)
 
 option(ENABLE_WARNINGS "Enable warnings" ON)
-option(ENABLE_WARNINGS_AS_ERRORS "Enable warnings as errors" ON)
+option(ENABLE_WARNINGS_AS_ERRORS "Enable warnings as errors" OFF)
+
+option(ENABLE_SANITIZER_ADDRESS "Enable sanitizer" ON)
+option(ENABLE_SANITIZER_UNDEFINED "Enable undefined sanitizer" ON)
 
 #Creating a variable. Name - Value
 set(LIBRARY_NAME Library)
@@ -38,6 +41,11 @@ include(Docs)
 
 if(ENABLE_WARNINGS)
     include(Warnings)
+endif()
+
+if(ENABLE_SANITIZER_ADDRESS OR ENABLE_SANITIZER_UNDEFINED)
+    include(Sanitizers)
+    add_sanitizer_flags()
 endif()
 
 #To use FetchContent_Declare, the repo has to have a CMakeLists
